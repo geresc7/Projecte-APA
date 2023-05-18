@@ -1,7 +1,6 @@
 from PIL import Image   #llibreria PILLOW
 import os
 
-#for f 
 image1 = Image.open('nom_imatge.jpg') #obrir imatge
 image1.show()
 

@@ -57,6 +57,9 @@ opcion_1.pack(side=LEFT, padx=10)
 opcion_2 = Radiobutton(frame_botones, text="Desenfoque", variable=funcionalidad_var, value="Desenfoque", font=("Arial", 14), bg="#F2F2F2", activebackground="#F2F2F2", selectcolor="#F2F2F2")
 opcion_2.pack(side=LEFT, padx=10)
 
+opcion_3 = Radiobutton(frame_botones, text="Dibuix", variable=funcionalidad_var, value="Dibuix", font=("Arial", 14), bg="#F2F2F2", activebackground="#F2F2F2", selectcolor="#F2F2F2")
+opcion_3.pack(side=LEFT, padx=10)
+
 boton_cargar = Button(root, text="Cargar Imagen", command=cargar_imagen, font=("Arial", 14), relief="flat", bg="#4CAF50", fg="white", activebackground="#45A049", activeforeground="white")
 boton_cargar.pack(pady=20)
 

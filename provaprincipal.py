@@ -3,6 +3,7 @@ from tkinter.filedialog import *
 from tkinter import *
 from PIL import ImageTk, Image
 import edicion_imagenes
+import foto_dibuix
 
 def cargar_imagen():
     ruta_imagen = askopenfilename(filetypes=[("Archivos de imagen", "*.png;*.jpg;*.jpeg")])
@@ -16,6 +17,8 @@ def aplicar_funcionalidad(imagen, funcionalidad):
         imagen_editada = edicion_imagenes.aplicar_filtro_grises(imagen)
     elif funcionalidad == "Desenfoque":
         imagen_editada = edicion_imagenes.aplicar_filtro_blur(imagen)
+    elif funcionalidad == "Desenfoque":
+        imagen_editada = foto_dibuix.foto_dibuix(imagen)
     # Agrega más opciones de funcionalidad según tus necesidades
     return imagen_editada
 

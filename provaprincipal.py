@@ -3,7 +3,6 @@ from tkinter.filedialog import *
 from tkinter import *
 from PIL import ImageTk, Image
 import edicion_imagenes
-import foto_dibuix
 
 def cargar_imagen():
     ruta_imagen = askopenfilename(filetypes=[("Archivos de imagen", "*.png;*.jpg;*.jpeg")])
@@ -11,14 +10,15 @@ def cargar_imagen():
         imagen = cv2.imread(ruta_imagen)
         imagen_editada = aplicar_funcionalidad(imagen, funcionalidad_var.get())
         mostrar_imagen(imagen_editada)
+        edicion_imagenes.foto_dibuix(ruta_imagen)
 
 def aplicar_funcionalidad(imagen, funcionalidad):
     if funcionalidad == "Escala de grises":
         imagen_editada = edicion_imagenes.aplicar_filtro_grises(imagen)
     elif funcionalidad == "Desenfoque":
         imagen_editada = edicion_imagenes.aplicar_filtro_blur(imagen)
-    elif funcionalidad == "Desenfoque":
-        imagen_editada = foto_dibuix.foto_dibuix(imagen)
+    elif funcionalidad == "Dibuix":
+        imagen_editada = edicion_imagenes.foto_dibuix(imagen)
     # Agrega más opciones de funcionalidad según tus necesidades
     return imagen_editada
 
@@ -26,7 +26,7 @@ def mostrar_imagen(imagen):
     ventana = Toplevel()
     ventana.title("Imagen Editada")
     ventana.configure(background="#F2F2F2")
-
+    
     imagen = cv2.cvtColor(imagen, cv2.COLOR_BGR2RGB)
     imagen_pil = ImageTk.PhotoImage(Image.fromarray(imagen))
     etiqueta_imagen = Label(ventana, image=imagen_pil)

@@ -4,12 +4,21 @@ from tkinter import *
 from PIL import ImageTk, Image
 import edicion_imagenes
 
+boton_guardar = None
+
 def cargar_imagen():
+    global boton_guardar
     ruta_imagen = askopenfilename(filetypes=[("Archivos de imagen", "*.png;*.jpg;*.jpeg")])
     if ruta_imagen:
         imagen = cv2.imread(ruta_imagen)
         imagen_editada = aplicar_funcionalidad(imagen, funcionalidad_var.get())
         mostrar_imagen(imagen_editada)
+        
+        if boton_guardar:
+            boton_guardar.pack_forget()
+        boton_guardar = Button(text="Guardar Imagen", command=lambda: cv2.imwrite(asksaveasfilename(), imagen_editada), font=("Calibri light", 14), relief="flat", bg="#4CAF50", fg="white", activebackground="#45A049", activeforeground="white")
+        boton_guardar.pack()
+    
 
 def aplicar_funcionalidad(imagen, funcionalidad):
     if funcionalidad == "Escala de grises":
@@ -26,7 +35,6 @@ def aplicar_funcionalidad(imagen, funcionalidad):
 
 def mostrar_imagen(imagen):
       
-    dimensions = imagen.shape
     height = int(imagen.shape[0])
     width = int(imagen.shape[1])
     cv2.namedWindow('image',cv2.WINDOW_NORMAL)
@@ -36,14 +44,9 @@ def mostrar_imagen(imagen):
         cv2.resizeWindow('image', width, height)
     cv2.imshow('image', imagen)
 
-def guardar_imagen(imagen):
-        ruta_guardar = asksaveasfilename(filetypes=[("Archivo JPEG", "*.jpg"), ("Archivo PNG", "*.png"), ("Archivo BMP", "*.bmp")])
-        if ruta_guardar:
-            formato = ruta_guardar.split(".")[-1]  # Obtener la extensión del archivo
-            cv2.imwrite(ruta_guardar, cv2.cvtColor(imagen, cv2.COLOR_RGB2BGR), [cv2.IMWRITE_JPEG_QUALITY, 90]) if formato == "jpg" else cv2.imwrite(ruta_guardar, cv2.cvtColor(imagen, cv2.COLOR_RGB2BGR))
 
 root = Tk()
-root.title("One Shot")
+root.title("Photomato")
 root.iconbitmap("Logoico.ico")
 
 my_img = ImageTk.PhotoImage(Image.open("Photomatobo.png"))
@@ -75,11 +78,8 @@ opcion_4.pack(side=LEFT, padx=10)
 boton_cargar = Button(root, text="Cargar Imagen", command=cargar_imagen, font=("Calibri light", 14), relief="flat", bg="#4CAF50", fg="white", activebackground="#45A049", activeforeground="white")
 boton_cargar.pack(side=LEFT, padx=10)
 
-boton_guardar = Button(root, text="Guardar Imagen", command=guardar_imagen, font=("Calibri light", 14), relief="flat", bg="#4CBF50", fg="white", activebackground="#45A049", activeforeground="white")
-boton_guardar.pack(side=LEFT, padx=10)
-
 button_quit = Button(root, text="Salir del Programa", command=root.quit, font=("Calibri light", 14), relief="flat", bg="#F44336", fg="white", activebackground="#E53935", activeforeground="white")
-button_quit.pack(pady=10, anchor=CENTER)
+button_quit.pack(side=RIGHT, padx=10)
 
 
 root.mainloop()

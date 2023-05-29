@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import matplotlib.pyplot as plt
 
 def aplicar_filtro_grises(imagen):
     # Aplicar filtro de escala de grises a la imagen
@@ -32,3 +33,16 @@ def foto_dibuix_color(imagen):
     color = cv2.bilateralFilter(imagen, 9, 250, 250)
     dibuix = cv2.bitwise_and(color, color, mask=bordes)
     return dibuix
+
+
+def negatiu(imagen):
+    negatiu = 255 - imagen
+    return negatiu
+
+def histograma(imagen):
+    hist = cv2.calcHist([imagen], [0], None, [256], [0, 256])
+    plt.plot(hist)
+    plt.title('Histograma')
+    plt.xlabel('Intensidad de píxel')
+    plt.ylabel('Frecuencia')
+    plt.show()

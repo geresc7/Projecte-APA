@@ -64,12 +64,12 @@ frame_botones = Frame(root, bg="#F2F2F2")
 frame_botones.pack()
 
 funcionalidad_var = StringVar()
-funcionalidad_var.set("Escala de grises")
+funcionalidad_var.set("Escala de grisos")
 
-opcion_1 = Radiobutton(frame_botones, text="Escala de grises", variable=funcionalidad_var, value="Escala de grises", font=("Calibri light", 14), bg="#F2F2F2", activebackground="#F2F2F2", selectcolor="#F2F2F2")
+opcion_1 = Radiobutton(frame_botones, text="Escala de grisos", variable=funcionalidad_var, value="Escala de grises", font=("Calibri light", 14), bg="#F2F2F2", activebackground="#F2F2F2", selectcolor="#F2F2F2")
 opcion_1.pack(side=LEFT, padx=10)
 
-opcion_2 = Radiobutton(frame_botones, text="Desenfoque", variable=funcionalidad_var, value="Desenfoque", font=("Calibri light", 14), bg="#F2F2F2", activebackground="#F2F2F2", selectcolor="#F2F2F2")
+opcion_2 = Radiobutton(frame_botones, text="Desenfocar", variable=funcionalidad_var, value="Desenfoque", font=("Calibri light", 14), bg="#F2F2F2", activebackground="#F2F2F2", selectcolor="#F2F2F2")
 opcion_2.pack(side=LEFT, padx=10)
 
 opcion_3 = Radiobutton(frame_botones, text="Dibuix", variable=funcionalidad_var, value="Dibuix", font=("Calibri light", 14), bg="#F2F2F2", activebackground="#F2F2F2", selectcolor="#F2F2F2")
@@ -84,10 +84,10 @@ opcion_5.pack(side=LEFT, padx=10)
 opcion_6 = Radiobutton(frame_botones, text="Histograma", variable=funcionalidad_var, value="Histograma", font=("Calibri light", 14), bg="#F2F2F2", activebackground="#F2F2F2", selectcolor="#F2F2F2")
 opcion_6.pack(side=LEFT, padx=10)
 
-boton_cargar = Button(root, text="Cargar Imagen", command=cargar_imagen, font=("Calibri light", 14), relief="flat", bg="#4CAF50", fg="white", activebackground="#45A049", activeforeground="white")
+boton_cargar = Button(root, text="Obrir Imatge", command=cargar_imagen, font=("Calibri light", 14), relief="flat", bg="#4CAF50", fg="white", activebackground="#45A049", activeforeground="white")
 boton_cargar.pack(side=LEFT, padx=10)
 
-button_quit = Button(root, text="Salir del Programa", command=root.quit, font=("Calibri light", 14), relief="flat", bg="#F44336", fg="white", activebackground="#E53935", activeforeground="white")
+button_quit = Button(root, text="Sortir", command=root.quit, font=("Calibri light", 14), relief="flat", bg="#F44336", fg="white", activebackground="#E53935", activeforeground="white")
 button_quit.pack(side=RIGHT, padx=10)
 
 

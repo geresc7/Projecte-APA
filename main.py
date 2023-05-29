@@ -34,14 +34,14 @@ def aplicar_funcionalidad(imagen, funcionalidad):
         imagen_editada = edicion_imagenes.negatiu(imagen)
     elif funcionalidad == "Histograma":
         imagen_editada = edicion_imagenes.histograma(imagen)
-
+    return imagen_editada
 
 def mostrar_imagen(imagen):
       
     height = int(imagen.shape[0])
     width = int(imagen.shape[1])
     cv2.namedWindow('image',cv2.WINDOW_NORMAL)
-    while height > 800:
+    while height > 800 or width > 800:
         width = int(width/2)
         height = int(height/2)
         cv2.resizeWindow('image', width, height)

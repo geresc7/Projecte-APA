@@ -17,7 +17,7 @@ def cargar_imagen():
         
         if boton_guardar:
             boton_guardar.pack_forget()
-        boton_guardar = Button(text="Guardar Imagen", command=lambda: cv2.imwrite(asksaveasfilename(), imagen_editada), font=("Calibri light", 14), relief="flat", bg="#4CAF50", fg="white", activebackground="#45A049", activeforeground="white")
+        boton_guardar = Button(text="Guardar Imatge", command=lambda: cv2.imwrite(asksaveasfilename(), imagen_editada), font=("Calibri light", 14), relief="flat", bg="#4CAF50", fg="white", activebackground="#45A049", activeforeground="white")
         boton_guardar.pack()
     
 

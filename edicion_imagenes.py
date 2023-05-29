@@ -9,7 +9,7 @@ def aplicar_filtro_grises(imagen):
 
 def aplicar_filtro_blur(imagen):
     # Aplicar filtro de desenfoque a la imagen
-    imagen_blur = cv2.blur(imagen, (40, 40))
+    imagen_blur = cv2.blur(imagen, (5, 5))
     return imagen_blur
 
 
